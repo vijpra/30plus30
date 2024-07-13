@@ -1,0 +1,231 @@
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    line-height: 1.6;
+    background-color: #f4f4f4;
+    color: #333;
+}
+
+/* Header Styles */
+.header-top {
+    background: #333;
+    color: #fff;
+}
+
+.header-top .header_information {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.header-top .header_information .menu-area .main-menu ul {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.header-top .header_information .menu-area .main-menu ul li {
+    margin-right: 20px;
+}
+
+.header-top .header_information .menu-area .main-menu ul li a {
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 15px;
+    transition: background 0.3s, color 0.3s;
+}
+
+.header-top .header_information .menu-area .main-menu ul li a:hover {
+    background: #444;
+    color: #fff;
+}
+
+/* Main Content Styles */
+main {
+    padding: 20px;
+    background: #fff;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin: 20px;
+}
+
+.article-main-image {
+    width: 100%;
+    max-height: 400px;
+    object-fit: cover;
+    margin-bottom: 20px;
+}
+
+h1 {
+    font-size: 2.5em;
+    margin-bottom: 20px;
+}
+
+.lead {
+    font-size: 1.2em;
+    margin-bottom: 20px;
+}
+
+h2 {
+    font-size: 2em;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+h3 {
+    font-size: 1.5em;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+
+p, ul {
+    margin-bottom: 20px;
+}
+
+ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+/* Footer Styles */
+.footer {
+    background: #333;
+    color: #fff;
+    padding: 20px 0;
+}
+
+.footer .footer-content h3 {
+    font-size: 1.5em;
+    margin-bottom: 20px;
+}
+
+.footer .footer-content p, .footer .footer-content ul {
+    margin-bottom: 20px;
+}
+
+.footer .footer-content ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+.footer .footer-content ul li {
+    margin-bottom: 10px;
+}
+
+.footer .footer-content ul li a {
+    color: #fff;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.footer .footer-content ul li a:hover {
+    color: #aaa;
+}
+
+.footer .footer-content .news .newslatter {
+    padding: 10px;
+    border: none;
+    margin-right: 10px;
+    width: calc(100% - 110px);
+    display: inline-block;
+}
+
+.footer .footer-content .news .submit {
+    padding: 10px;
+    background: #555;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+}
+
+.footer .footer-content .news .submit:hover {
+    background: #444;
+}
+
+.footer .social_link {
+    list-style-type: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.footer .social_link li {
+    margin: 0 10px;
+}
+
+.footer .social_link li a img {
+    width: 32px;
+    height: 32px;
+    transition: transform 0.3s;
+}
+
+.footer .social_link li a img:hover {
+    transform: scale(1.1);
+}
+
+.footer .copyright {
+    text-align: center;
+    margin-top: 20px;
+}
+
+/* Responsive Styles */
+@media (max-width: 768px) {
+    .header-top .header_information {
+        flex-direction: column;
+    }
+
+    .header-top .header_information .menu-area .main-menu ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .header-top .header_information .menu-area .main-menu ul li {
+        margin-bottom: 10px;
+    }
+
+    main {
+        margin: 0;
+        padding: 10px;
+    }
+
+    .footer .footer-content {
+        text-align: center;
+    }
+
+    .footer .footer-content .news .newslatter {
+        width: 100%;
+        margin-bottom: 10px;
+    }
+
+    .footer .footer-content .news .submit {
+        width: 100%;
+    }
+}
+
+/* Robot Animation */
+@keyframes robot-move {
+    0% {
+        transform: translate(0, 0);
+    }
+    25% {
+        transform: translate(100px, 0);
+    }
+    50% {
+        transform: translate(100px, 100px);
+    }
+    75% {
+        transform: translate(0, 100px);
+    }
+    100% {
+        transform: translate(0, 0);
+    }
+}
+
+.tiny-robot {
+    position: fixed;
+    width: 50px;
+    height: 50px;
+    background: url('images/tiny-robot.png') no-repeat center center / contain;
+    animation: robot-move 10s linear infinite;
+}
