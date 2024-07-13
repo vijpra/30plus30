@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    .contact_bg {
+      background-color: #f8f9fa;
+      padding: 30px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .titlepage h2 {
+      font-size: 30px;
+      margin-bottom: 20px;
+      font-weight: bold;
+    }
+    .contactus {
+      width: 100%;
+      margin-bottom: 15px;
+      padding: 10px;
+      border: 1px solid #ced4da;
+      border-radius: 4px;
+    }
+    .textarea {
+      width: 100%;
+      height: 150px;
+      padding: 10px;
+      border: 1px solid #ced4da;
+      border-radius: 4px;
+    }
+    .send {
+      background-color: #007bff;
+      color: white;
+      padding: 10px 20px;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    .send:hover {
+      background-color: #0056b3;
+    }
+    @media (max-width: 767px) {
+      .contact_bg, #map {
+        margin-bottom: 30px;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div id="contact" class="contact">
+    <div class="container-fluid padding_left2">
+      <div class="white_color">
+        <div class="row">
+          <!-- <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+            <div id="map">
+              <iframe src="animation/robot.html" width="100%" height="500px" style="border:none;"></iframe>
+            </div>
+          </div> -->
+          
+          <div class="col-xl-6 col-lg-6 col-md-6 col-sm-12">
+            <form class="contact_bg" id="contactForm" action="https://docs.google.com/forms/d/e/1FAIpQLScmj2LHWGKnUzJgZXDP3ubTXfxqwibIX2tlXz4p9m_xZATWtA/formResponse" method="post" target="hidden_iframe">
+              <div class="row">
+                <div class="col-md-12">
+                  <div class="titlepage">
+                    <!-- <h2>Contact <strong class="yellow">us</strong></h2> -->
+                  </div>
+                  <div class="col-md-12">
+                    <input class="contactus" placeholder="Your Name" type="text" name="entry.1189545882" required>
+                  </div>
+                  <div class="col-md-12">
+                    <input class="contactus" placeholder="Your Email" type="email" name="entry.1264513876" required>
+                  </div>
+                  <div class="col-md-12">
+                    <input class="contactus" placeholder="Your Phone" type="tel" name="entry.2019436653" required>
+                  </div>
+                  <div class="col-md-12">
+                    <textarea class="textarea" placeholder="Message" name="entry.520689389" required></textarea>
+                  </div>
+                  <div class="col-xl-12 col-lg-12 col-md-12 col-sm-12">
+                    <button class="send" type="submit">Send</button>
+                  </div>
+                </div>
+              </div>
+            </form>
+            <div id="successMessage" style="display: none;">
+              <p>Your response has been submitted successfully!</p>
+            </div>
+            <iframe name="hidden_iframe" id="hidden_iframe" style="display:none;" onload="handleFormSubmission();"></iframe>
+          </div>
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    function handleFormSubmission() {
+      var iframe = document.getElementById('hidden_iframe');
+      if (iframe.contentDocument.body.innerText.trim() !== "") {
+        // Show the success message
+        document.getElementById('successMessage').style.display = 'block';
+        // Hide the form
+        document.querySelector('.contact_bg').style.display = 'none';
+        
+        // Re-enable the contact form after 10 seconds
+        setTimeout(function() {
+          document.getElementById('successMessage').style.display = 'none';
+          document.querySelector('.contact_bg').style.display = 'block';
+          document.getElementById('contactForm').reset(); // Reset the form fields
+        }, 10000);
+      }
+    }
+  
+    document.getElementById('contactForm').addEventListener('submit', function(event) {
+      event.preventDefault(); // Prevent the default form submission
+    
+      // Simulate form submission to Google Forms
+      var form = this;
+      var formData = new FormData(form);
+    
+      fetch(form.action, {
+        method: form.method,
+        body: formData,
+        mode: 'no-cors' // This is necessary to bypass CORS issues
+      }).then(() => {
+        // Force the iframe load to trigger
+        var iframe = document.getElementById('hidden_iframe');
+        iframe.src = iframe.src;
+      }).catch(error => console.error('Error:', error));
+    });
+  </script>
+
+</body>
+</html>
